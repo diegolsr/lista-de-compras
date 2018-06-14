@@ -30,45 +30,27 @@ export default {
     NewProduct,
     ProductList,
   },
-  data() {
-    return {
-      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      products: [],
-      errors: [],
-    };
-  },
-  created() {
-    axios.get(`http://localhost:3000/products`)
-      .then(res => {
-        this.products = res.data;
-      })
-      .catch(e => {
-        this.errors.push(e);
-      });
+  mounted() {
+    this.$store.dispatch('getAllProducts');
   },
   computed: {
     today() {
-      const newDate = new Date();
-      return `${this.days[newDate.getDay()]}, ${newDate.getDate()} of ${this.months[newDate.getMonth()]}`;
+      this.$store.dispatch('getTime');
+      return this.$store.state.today
+    },
+    products() {
+      return this.$store.state.products
     },
   },
   methods: {
-    addProduct(product) {
-      const newProduct = { text: product };
-      axios.post(`http://localhost:3000/products`, newProduct)
-        .then((res) => {
-          this.created();
-        })
-        .catch((e) => {
-          this.errors.push(e);
-        })
+    addProduct(text) {
+      this.$store.dispatch('addProduct', text);
     },
-    checkProduct(index) {
-      this.products[index].bought = !this.products[index].bought;
+    checkProduct(product) {
+      this.$store.dispatch('checkProduct', product);
     },
-    removeProduct(index) {
-      this.products.splice(index, 1);
+    removeProduct(id) {
+      this.$store.dispatch('removeProduct', id);
     },
   },
 };

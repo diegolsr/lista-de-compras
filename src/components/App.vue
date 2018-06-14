@@ -6,7 +6,7 @@
           <div class="container">
             <div class="navbar-brand">
               <div class="navbar-item">
-                Lista de Compras
+                Shopping List
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@
       <div class="hero-foot">
         <div class="container">
           <div class="content has-text-centered">
-            <strong>VueJS Tutorial</strong>
+            <strong>https://github.com/SamuelPinho</strong>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import ProductCard from './components/ProductCard';
+import ProductCard from './ProductCard';
 
 export default {
   name: 'App',
@@ -47,8 +47,8 @@ export default {
 };
 </script>
 
-<style src="../node_modules/bulma/css/bulma.min.css"></style>
-<style src="../node_modules/font-awesome/css/font-awesome.min.css"></style>
+<style src="../../node_modules/bulma/css/bulma.min.css"></style>
+<style src="../../node_modules/font-awesome/css/font-awesome.min.css"></style>
 <style>
 
 </style>

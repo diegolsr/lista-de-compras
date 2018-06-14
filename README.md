@@ -1,6 +1,6 @@
 # src
 
-> Lista de compras com VUE
+> Shopping List With RESTFul API(Node, express, Mongo) and VueJS
 
 ## Build Setup
 

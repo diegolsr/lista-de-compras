@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const app = require('../app')
+const debug = require('debug')('mean-app:server')
+const http = require('http')
+
+let port = process.env.PORT || '3000'
+app.set('port', port)
+
+let server = http.createServer(app)
+
+server.listen(port)

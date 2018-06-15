@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import NewProduct from './NewProduct';
 import ProductList from './ProductList';
 
@@ -36,10 +35,10 @@ export default {
   computed: {
     today() {
       this.$store.dispatch('getTime');
-      return this.$store.state.today
+      return this.$store.state.today;
     },
     products() {
-      return this.$store.state.products
+      return this.$store.state.products;
     },
   },
   methods: {
